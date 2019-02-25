@@ -7,7 +7,7 @@ const assert = require('assert');
 
 describe('Home', () => {
   it('テキストは Home', () => {
-    const wrapper = shallow(<Home />);
-    assert.equal('Home', wrapper.text());
+    const wrapper = shallow(<Home />).find('[data-test="text"]');
+    assert.equal('This page is home.', wrapper.text());
   });
 });
