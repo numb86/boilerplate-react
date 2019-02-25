@@ -10,7 +10,18 @@ const OUTPUT_DIR_NAME = 'public';
 module.exports = (env, argv) => {
   const isProduction = argv.mode === 'production';
 
-  const plugins = [new HtmlWebpackPlugin({template: './index.html'})];
+  const plugins = [
+    new HtmlWebpackPlugin({
+      filename: './index.html',
+      template: './index.html',
+      chunks: ['vendors', 'index'],
+    }),
+    new HtmlWebpackPlugin({
+      filename: './another.html',
+      template: './another.html',
+      chunks: ['vendors', 'another'],
+    }),
+  ];
 
   const splitChunks = {
     cacheGroups: {
@@ -50,7 +61,8 @@ module.exports = (env, argv) => {
   return {
     context: path.resolve(__dirname, SOURCE_DIR_NAME),
     entry: {
-      bundle: './index.js',
+      index: './index.js',
+      another: './another.js',
     },
     output: {
       path: path.resolve(__dirname, OUTPUT_DIR_NAME),
