@@ -17,12 +17,19 @@ const presets = [
   ],
 ];
 
+const plugins = [];
+
 if (process.env.NODE_ENV === 'test') {
   presets.push(['power-assert']);
 }
 
+if (process.env.NODE_ENV !== 'test') {
+  plugins.push('react-remove-properties');
+}
+
 const config = {
   presets,
+  plugins,
 };
 
 module.exports = config;
