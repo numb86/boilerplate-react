@@ -12,11 +12,11 @@ const z = {
 };
 console.log(z);
 
-const asyncFunc = async statusCode => {
-  const res = await fetch(`https://httpbin.org/status/${statusCode}`);
+const asyncFunc = async () => {
+  const res = await fetch('http://localhost:8080');
   console.log(res.status);
 };
 
-asyncFunc(200);
+asyncFunc();
 
 ReactDOM.render(App(), document.querySelector('#app'));
