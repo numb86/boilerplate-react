@@ -17,9 +17,9 @@ module.exports = (env, argv) => {
       chunks: ['vendors', 'index'],
     }),
     new HtmlWebpackPlugin({
-      filename: './another.html',
-      template: './another.html',
-      chunks: ['vendors', 'another'],
+      filename: './context/index.html',
+      template: './context.html',
+      chunks: ['vendors', 'context'],
     }),
   ];
 
@@ -62,7 +62,7 @@ module.exports = (env, argv) => {
     context: path.resolve(__dirname, SOURCE_DIR_NAME),
     entry: {
       index: './index.js',
-      another: './another.js',
+      context: './context.js',
     },
     output: {
       path: path.resolve(__dirname, OUTPUT_DIR_NAME),
