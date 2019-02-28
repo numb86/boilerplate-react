@@ -78,7 +78,12 @@ module.exports = (env, argv) => {
       contentBase: path.resolve(__dirname, OUTPUT_DIR_NAME),
       host: '0.0.0.0',
       disableHostCheck: true,
-      historyApiFallback: true,
+      historyApiFallback: {
+        rewrites: [
+          {from: /^\/context/, to: '/context/index.html'},
+          {from: /^\//, to: 'index.html'},
+        ],
+      },
     },
   };
 };
