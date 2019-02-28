@@ -17,9 +17,9 @@ module.exports = (env, argv) => {
       chunks: ['vendors', 'index'],
     }),
     new HtmlWebpackPlugin({
-      filename: './context/index.html',
-      template: './context.html',
-      chunks: ['vendors', 'context'],
+      filename: './hooks/index.html',
+      template: './hooks.html',
+      chunks: ['vendors', 'hooks'],
     }),
   ];
 
@@ -62,7 +62,7 @@ module.exports = (env, argv) => {
     context: path.resolve(__dirname, SOURCE_DIR_NAME),
     entry: {
       index: './index.js',
-      context: './context.js',
+      hooks: './hooks.js',
     },
     output: {
       path: path.resolve(__dirname, OUTPUT_DIR_NAME),
@@ -80,7 +80,7 @@ module.exports = (env, argv) => {
       disableHostCheck: true,
       historyApiFallback: {
         rewrites: [
-          {from: /^\/context/, to: '/context/index.html'},
+          {from: /^\/hooks/, to: '/hooks/index.html'},
           {from: /^\//, to: 'index.html'},
         ],
       },
