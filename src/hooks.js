@@ -1,26 +1,17 @@
-import React, {useState, useCallback, useEffect} from 'react';
+import React, {createContext, useContext} from 'react';
 import ReactDOM from 'react-dom';
 
-const Counter = () => {
-  const [count, setCount] = useState(0);
-  const increment = () => setCount(count + 1);
-  const decrement = useCallback(() => setCount(prevState => prevState - 1), [
-    setCount,
-  ]);
-  useEffect(() => {
-    console.log('call effect');
-  }, [increment]); // decrement にすると、effect は呼ばれない。キャッシュしている decrement を使い回しているため
+const myContext = createContext({id: 1, name: 'Alice'});
+
+const User = () => {
+  const user = useContext(myContext);
   return (
     <div>
-      <p>count is {count}</p>
-      <button type="button" onClick={increment}>
-        +
-      </button>
-      <button type="button" onClick={decrement}>
-        -
-      </button>
+      id: {user.id}
+      <br />
+      name: {user.name}
     </div>
   );
 };
 
-ReactDOM.render(<Counter />, document.querySelector('#app'));
+ReactDOM.render(<User />, document.querySelector('#app'));
