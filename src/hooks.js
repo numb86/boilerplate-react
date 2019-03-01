@@ -3,15 +3,13 @@ import ReactDOM from 'react-dom';
 
 const Counter = () => {
   const [count, setCount] = useState(0);
-  const increment = useCallback(() => setCount(prevState => prevState + 1), [
-    setCount,
-  ]);
+  const increment = () => setCount(count + 1);
   const decrement = useCallback(() => setCount(prevState => prevState - 1), [
     setCount,
   ]);
   useEffect(() => {
     console.log('call effect');
-  }, [count]); // 空の配列にすると、マウント時にのみ実行されるようになる
+  }, [increment]); // decrement にすると、effect は呼ばれない。キャッシュしている decrement を使い回しているため
   return (
     <div>
       <p>count is {count}</p>
