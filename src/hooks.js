@@ -1,17 +1,30 @@
-import React, {createContext, useContext} from 'react';
+import React, {useReducer} from 'react';
 import ReactDOM from 'react-dom';
 
-const myContext = createContext({id: 1, name: 'Alice'});
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'INCREMENT':
+      return state + 1;
+    case 'DECREMENT':
+      return state - 1;
+    default:
+      return state;
+  }
+};
 
-const User = () => {
-  const user = useContext(myContext);
+const Counter = () => {
+  const [state, dispatch] = useReducer(reducer, 0);
   return (
     <div>
-      id: {user.id}
-      <br />
-      name: {user.name}
+      <p>count is {state}</p>
+      <button type="button" onClick={() => dispatch({type: 'INCREMENT'})}>
+        ++
+      </button>
+      <button type="button" onClick={() => dispatch({type: 'DECREMENT'})}>
+        --
+      </button>
     </div>
   );
 };
 
-ReactDOM.render(<User />, document.querySelector('#app'));
+ReactDOM.render(<Counter />, document.querySelector('#app'));
