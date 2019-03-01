@@ -1,25 +1,12 @@
-import React, {useState, useCallback} from 'react';
+import React, {useEffect} from 'react';
 import ReactDOM from 'react-dom';
 
-const Counter = () => {
-  const [count, setCount] = useState(0);
-  const increment = useCallback(() => setCount(prevState => prevState + 1), [
-    setCount,
-  ]);
-  const decrement = useCallback(() => setCount(prevState => prevState - 1), [
-    setCount,
-  ]);
-  return (
-    <div>
-      <p>count is {count}</p>
-      <button type="button" onClick={increment}>
-        +
-      </button>
-      <button type="button" onClick={decrement}>
-        -
-      </button>
-    </div>
-  );
+const Header = ({text}) => {
+  // textが更新されるたびにdocument.titleを更新する
+  useEffect(() => {
+    document.title = text;
+  }, [text]);
+  return <header>{text}</header>;
 };
 
-ReactDOM.render(<Counter />, document.querySelector('#app'));
+ReactDOM.render(<Header text="foo" />, document.querySelector('#app'));
