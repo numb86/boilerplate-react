@@ -1,12 +1,28 @@
-import React, {useEffect} from 'react';
+import React, {useState, useCallback, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 
-const Header = ({text}) => {
-  // textが更新されるたびにdocument.titleを更新する
+const Counter = () => {
+  const [count, setCount] = useState(0);
+  const increment = useCallback(() => setCount(prevState => prevState + 1), [
+    setCount,
+  ]);
+  const decrement = useCallback(() => setCount(prevState => prevState - 1), [
+    setCount,
+  ]);
   useEffect(() => {
-    document.title = text;
-  }, [text]);
-  return <header>{text}</header>;
+    console.log('call effect');
+  }, [count]); // 空の配列にすると、マウント時にのみ実行されるようになる
+  return (
+    <div>
+      <p>count is {count}</p>
+      <button type="button" onClick={increment}>
+        +
+      </button>
+      <button type="button" onClick={decrement}>
+        -
+      </button>
+    </div>
+  );
 };
 
-ReactDOM.render(<Header text="foo" />, document.querySelector('#app'));
+ReactDOM.render(<Counter />, document.querySelector('#app'));
