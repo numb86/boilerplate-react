@@ -1,30 +1,27 @@
-import React, {useReducer} from 'react';
+import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 
-const reducer = (state, action) => {
-  switch (action.type) {
-    case 'INCREMENT':
-      return state + 1;
-    case 'DECREMENT':
-      return state - 1;
-    default:
-      return state;
-  }
+const useWindowSize = () => {
+  const [width, setWidth] = useState(window.innerWidth);
+  const [height, setHeight] = useState(window.innerHeight);
+  useEffect(() => {
+    const handler = () => {
+      setWidth(window.innerWidth);
+      setHeight(window.innerHeight);
+    };
+    window.addEventListener('resize', handler);
+    return () => window.addEventListener(handler);
+  }, []);
+  return [width, height];
 };
 
-const Counter = () => {
-  const [state, dispatch] = useReducer(reducer, 0);
+const WindowSize = () => {
+  const [width, height] = useWindowSize();
   return (
-    <div>
-      <p>count is {state}</p>
-      <button type="button" onClick={() => dispatch({type: 'INCREMENT'})}>
-        ++
-      </button>
-      <button type="button" onClick={() => dispatch({type: 'DECREMENT'})}>
-        --
-      </button>
-    </div>
+    <p>
+      width:{width}, height:{height}
+    </p>
   );
 };
 
-ReactDOM.render(<Counter />, document.querySelector('#app'));
+ReactDOM.render(<WindowSize />, document.querySelector('#app'));
