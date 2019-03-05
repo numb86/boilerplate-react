@@ -1,27 +1,44 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 
-const useWindowSize = () => {
-  const [width, setWidth] = useState(window.innerWidth);
-  const [height, setHeight] = useState(window.innerHeight);
-  useEffect(() => {
-    const handler = () => {
-      setWidth(window.innerWidth);
-      setHeight(window.innerHeight);
-    };
-    window.addEventListener('resize', handler);
-    return () => window.addEventListener(handler);
-  }, []);
-  return [width, height];
-};
+const fruitList = [
+  {id: 1, label: 'Banana'},
+  {id: 2, label: 'Apple'},
+  {id: 3, label: 'Orange'},
+];
 
-const WindowSize = () => {
-  const [width, height] = useWindowSize();
+const Select = ({list, selectedItem, onChange, initialMessage = ''}) => (
+  <select value={selectedItem || initialMessage} onChange={onChange}>
+    {!selectedItem && (
+      <option disabled value={initialMessage}>
+        {initialMessage}
+      </option>
+    )}
+    {list &&
+      list.map(item => (
+        <option key={item} value={item}>
+          {item}
+        </option>
+      ))}
+  </select>
+);
+
+const App = () => {
+  const [favoriteFruit, setFavoriteFruit] = useState(null);
+  const onChange = e => {
+    setFavoriteFruit(fruitList.filter(f => f.label === e.target.value)[0]);
+  };
   return (
-    <p>
-      width:{width}, height:{height}
-    </p>
+    <>
+      {favoriteFruit && <div>{`I like ${favoriteFruit.label}.`}</div>}
+      <Select
+        list={fruitList.map(f => f.label)}
+        selectedItem={favoriteFruit ? favoriteFruit.label : null}
+        onChange={onChange}
+        initialMessage="select favorite fruit"
+      />
+    </>
   );
 };
 
-ReactDOM.render(<WindowSize />, document.querySelector('#app'));
+ReactDOM.render(<App />, document.querySelector('#app'));
