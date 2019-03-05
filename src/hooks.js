@@ -26,6 +26,12 @@ const Select = ({list, selectedItem, onChange, initialMessage = ''}) => (
 );
 
 const reducer = (state, action) => {
+  const actionValues = Object.values(action);
+  actionValues.forEach(v => {
+    if (v instanceof Promise)
+      throw new Error('Action does not allow Promise Object.');
+  });
+
   const {type, favoriteFruit, incrementValue} = action;
   switch (type) {
     case 'UPDATE_FAVORITE_FRUIT':
