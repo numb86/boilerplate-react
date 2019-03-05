@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useReducer} from 'react';
 import ReactDOM from 'react-dom';
 
 const fruitList = [
@@ -23,11 +23,30 @@ const Select = ({list, selectedItem, onChange, initialMessage = ''}) => (
   </select>
 );
 
+const reducer = (state, action) => {
+  const {type, favoriteFruit} = action;
+  switch (type) {
+    case 'UPDATE_FAVORITE_FRUIT':
+      return {
+        ...state,
+        favoriteFruit,
+      };
+    default:
+      return state;
+  }
+};
+
+const initialState = {
+  favoriteFruit: null,
+};
+
 const App = () => {
-  const [favoriteFruit, setFavoriteFruit] = useState(null);
+  const [state, dispatch] = useReducer(reducer, initialState);
   const onChange = e => {
-    setFavoriteFruit(fruitList.filter(f => f.label === e.target.value)[0]);
+    const seletedFruit = fruitList.filter(f => f.label === e.target.value)[0];
+    dispatch({type: 'UPDATE_FAVORITE_FRUIT', favoriteFruit: seletedFruit});
   };
+  const {favoriteFruit} = state;
   return (
     <>
       {favoriteFruit && <div>{`I like ${favoriteFruit.label}.`}</div>}
