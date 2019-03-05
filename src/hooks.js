@@ -1,6 +1,8 @@
 import React, {useReducer} from 'react';
 import ReactDOM from 'react-dom';
 
+const mockApi = value => Promise.resolve(value);
+
 const fruitList = [
   {id: 1, label: 'Banana'},
   {id: 2, label: 'Apple'},
@@ -24,12 +26,17 @@ const Select = ({list, selectedItem, onChange, initialMessage = ''}) => (
 );
 
 const reducer = (state, action) => {
-  const {type, favoriteFruit} = action;
+  const {type, favoriteFruit, incrementValue} = action;
   switch (type) {
     case 'UPDATE_FAVORITE_FRUIT':
       return {
         ...state,
         favoriteFruit,
+      };
+    case 'INCREMENT':
+      return {
+        ...state,
+        count: state.count + incrementValue,
       };
     default:
       return state;
@@ -38,6 +45,7 @@ const reducer = (state, action) => {
 
 const initialState = {
   favoriteFruit: null,
+  count: 0,
 };
 
 const App = () => {
@@ -46,10 +54,21 @@ const App = () => {
     const seletedFruit = fruitList.filter(f => f.label === e.target.value)[0];
     dispatch({type: 'UPDATE_FAVORITE_FRUIT', favoriteFruit: seletedFruit});
   };
-  const {favoriteFruit} = state;
+  const increment = async value => {
+    const res = await mockApi(value);
+    dispatch({type: 'INCREMENT', incrementValue: res});
+  };
+
+  const {favoriteFruit, count} = state;
   return (
     <>
-      {favoriteFruit && <div>{`I like ${favoriteFruit.label}.`}</div>}
+      <div>
+        {`Count is ${count}.`}{' '}
+        {favoriteFruit && `I like ${favoriteFruit.label}.`}
+      </div>
+      <button type="button" onClick={() => increment(1)}>
+        +1
+      </button>
       <Select
         list={fruitList.map(f => f.label)}
         selectedItem={favoriteFruit ? favoriteFruit.label : null}
