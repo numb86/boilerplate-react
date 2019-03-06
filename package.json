@@ -39,7 +39,7 @@
     "jest": "^24.1.0",
     "license-info-webpack-plugin": "^2.0.0",
     "power-assert": "^1.6.1",
-    "react-test-renderer": "^16.8.3",
+    "react-test-renderer": "^16.8.4",
     "terser-webpack-plugin": "^1.2.2",
     "webpack": "^4.29.3",
     "webpack-cli": "^3.2.3",
@@ -47,8 +47,8 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
-    "react": "^16.8.3",
-    "react-dom": "^16.8.3",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
     "react-router-dom": "^4.3.1",
     "whatwg-fetch": "^3.0.0"
   }
