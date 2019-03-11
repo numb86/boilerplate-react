@@ -2515,10 +2515,10 @@ eslint-config-airbnb@^17.1.0:
     object.assign "^4.1.0"
     object.entries "^1.0.4"
 
-eslint-config-numb@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-numb/-/eslint-config-numb-3.0.0.tgz#a6e2b35612c06a4b0cd820acc6e1d43de086e85c"
-  integrity sha512-srrSC+E2VsNuZomKKg3hIZf/gcEaUvuKzWNZJnkbUO5RHt4a3bAAT/Rb/C6L6mQq3YBEcBApLE0PK2Igpm4Gaw==
+eslint-config-numb@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-numb/-/eslint-config-numb-4.0.0.tgz#091d47e1642defc44953080fd78a4785febbaff4"
+  integrity sha512-QRwg4rPseB7US2pUxm9PkhRlIeZ6d/zWyfML/+w8JjOv7SOV7L59V535oakjE1oCeXFgZlRi1peTSb0OC9Itiw==
   dependencies:
     eslint "^5.9.0"
     eslint-config-airbnb "^17.1.0"
