@@ -10,9 +10,9 @@ const App = () => (
   <BrowserRouter>
     <>
       <Header />
-      <Route exact path="/" component={Home} />
-      <Route path="/memo" component={Memo} />
-      <Route path="/profile" component={Profile} />
+      <Route exact path="/routing" component={Home} />
+      <Route path="/routing/memo" component={Memo} />
+      <Route path="/routing/profile" component={Profile} />
     </>
   </BrowserRouter>
 );

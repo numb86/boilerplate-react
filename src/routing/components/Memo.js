@@ -4,7 +4,7 @@ import {Route} from 'react-router-dom';
 const Memo = () => (
   <>
     Memo
-    <Route path="/memo/hoge" render={() => <div>Hoge</div>} />
+    <Route path="/routing/memo/hoge" render={() => <div>Hoge</div>} />
   </>
 );
 export default Memo;
