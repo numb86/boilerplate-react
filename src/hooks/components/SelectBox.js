@@ -1,7 +1,17 @@
 import React from 'react';
 
-const SelectBox = ({list, selectedItem, onChange, initialMessage = ''}) => (
-  <select value={selectedItem || initialMessage} onChange={onChange}>
+const SelectBox = ({
+  list,
+  selectedItem,
+  onChange,
+  initialMessage = '',
+  className,
+}) => (
+  <select
+    value={selectedItem || initialMessage}
+    onChange={onChange}
+    className={className}
+  >
     {!selectedItem && (
       <option disabled value={initialMessage}>
         {initialMessage}
