@@ -21,6 +21,11 @@ module.exports = (env, argv) => {
       template: './hooks.html',
       chunks: ['vendors', 'hooks'],
     }),
+    new HtmlWebpackPlugin({
+      filename: './routing/index.html',
+      template: './routing/index.html',
+      chunks: ['vendors', 'routing'],
+    }),
   ];
 
   const splitChunks = {
@@ -63,6 +68,7 @@ module.exports = (env, argv) => {
     entry: {
       index: './index.js',
       hooks: './hooks.js',
+      routing: './routing/index.js',
     },
     output: {
       path: path.resolve(__dirname, OUTPUT_DIR_NAME),
@@ -81,6 +87,7 @@ module.exports = (env, argv) => {
       historyApiFallback: {
         rewrites: [
           {from: /^\/hooks/, to: '/hooks/index.html'},
+          {from: /^\/routing/, to: '/routing/index.html'},
           {from: /^\//, to: 'index.html'},
         ],
       },

@@ -2,8 +2,6 @@ import 'whatwg-fetch';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import App from './components/App';
-
 // IE11動作確認のためのコード
 const x = {a: 1, b: 2};
 const y = {a: 2, c: 3};
@@ -19,5 +17,7 @@ const asyncFunc = async () => {
 };
 
 asyncFunc();
+
+const App = () => <>Hello React!</>;
 
 ReactDOM.render(<App />, document.querySelector('#app'));
