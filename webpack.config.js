@@ -18,7 +18,7 @@ module.exports = (env, argv) => {
     }),
     new HtmlWebpackPlugin({
       filename: './hooks/index.html',
-      template: './hooks.html',
+      template: './hooks/index.html',
       chunks: ['vendors', 'hooks'],
     }),
     new HtmlWebpackPlugin({
@@ -67,7 +67,7 @@ module.exports = (env, argv) => {
     context: path.resolve(__dirname, SOURCE_DIR_NAME),
     entry: {
       index: './index.js',
-      hooks: './hooks.js',
+      hooks: './hooks/index.js',
       routing: './routing/index.js',
     },
     output: {
