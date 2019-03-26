@@ -4,8 +4,8 @@ const TextBox = ({
   type,
   value,
   onChange,
-  placeHolder = '',
-  maxLength = '',
+  placeHolder,
+  maxLength,
   className,
 }) => (
   <input
