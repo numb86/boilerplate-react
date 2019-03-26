@@ -10,7 +10,7 @@ const reducer = (state, action) => {
       throw new Error('Action does not allow Promise Object.');
   });
 
-  const {type, favoriteFruit, incrementValue} = action;
+  const {type, favoriteFruit, incrementValue, screenName, message} = action;
   switch (type) {
     case 'UPDATE_FAVORITE_FRUIT':
       return {
@@ -22,6 +22,16 @@ const reducer = (state, action) => {
         ...state,
         count: state.count + incrementValue,
       };
+    case 'ENTER_SCREEN_NAME':
+      return {
+        ...state,
+        screenName,
+      };
+    case 'ENTER_MESSAGE':
+      return {
+        ...state,
+        message,
+      };
     default:
       return state;
   }
@@ -30,6 +40,8 @@ const reducer = (state, action) => {
 const initialState = {
   favoriteFruit: null,
   count: 0,
+  screenName: '',
+  message: '',
 };
 
 ReactDOM.render(
