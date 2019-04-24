@@ -64,6 +64,7 @@ module.exports = (env, argv) => {
   }
 
   return {
+    devtool: isProduction ? '' : 'source-map',
     context: path.resolve(__dirname, SOURCE_DIR_NAME),
     entry: {
       index: './index.js',
