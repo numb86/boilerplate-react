@@ -67,9 +67,9 @@ module.exports = (env, argv) => {
     devtool: isProduction ? '' : 'source-map',
     context: path.resolve(__dirname, SOURCE_DIR_NAME),
     entry: {
-      index: './index.js',
-      hooks: './hooks/index.js',
-      routing: './routing/index.js',
+      index: './index.tsx',
+      hooks: './hooks/index.tsx',
+      routing: './routing/index.tsx',
     },
     output: {
       path: path.resolve(__dirname, OUTPUT_DIR_NAME),
