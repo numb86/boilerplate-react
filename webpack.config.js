@@ -77,7 +77,12 @@ module.exports = (env, argv) => {
       publicPath: '/',
     },
     module: {
-      rules: [{test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'}],
+      rules: [
+        {test: /\.*(ts|tsx)$/, exclude: /node_modules/, loader: 'babel-loader'},
+      ],
+    },
+    resolve: {
+      extensions: ['.ts', '.tsx', '.js', '.jsx'],
     },
     plugins,
     optimization,
