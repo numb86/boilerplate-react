@@ -16,6 +16,7 @@ const presets = [
       development: process.env.NODE_ENV === 'development',
     },
   ],
+  ['@babel/preset-typescript'],
 ];
 
 const plugins = [];

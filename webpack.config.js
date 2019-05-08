@@ -67,9 +67,9 @@ module.exports = (env, argv) => {
     devtool: isProduction ? '' : 'source-map',
     context: path.resolve(__dirname, SOURCE_DIR_NAME),
     entry: {
-      index: './index.js',
-      hooks: './hooks/index.js',
-      routing: './routing/index.js',
+      index: './index.tsx',
+      hooks: './hooks/index.tsx',
+      routing: './routing/index.tsx',
     },
     output: {
       path: path.resolve(__dirname, OUTPUT_DIR_NAME),
@@ -77,7 +77,12 @@ module.exports = (env, argv) => {
       publicPath: '/',
     },
     module: {
-      rules: [{test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'}],
+      rules: [
+        {test: /\.*(ts|tsx)$/, exclude: /node_modules/, loader: 'babel-loader'},
+      ],
+    },
+    resolve: {
+      extensions: ['.ts', '.tsx', '.js', '.jsx'],
     },
     plugins,
     optimization,

@@ -3,7 +3,7 @@ import React, {useReducer} from 'react';
 import SelectBox from './SelectBox';
 import TextBox from './TextBox';
 
-const mockApi = value => Promise.resolve(value);
+const mockApi = (value: any) => Promise.resolve(value);
 
 const fruitList = [
   {id: 1, label: 'Banana'},
@@ -11,18 +11,18 @@ const fruitList = [
   {id: 3, label: 'Orange'},
 ];
 
-const App = ({reducer, initialState}) => {
+const App = ({reducer, initialState}: any) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const onSelectFruit = e => {
+  const onSelectFruit = (e: any) => {
     const seletedFruit = fruitList.filter(f => f.label === e.target.value)[0];
     dispatch({type: 'UPDATE_FAVORITE_FRUIT', favoriteFruit: seletedFruit});
   };
-  const increment = async value => {
+  const increment = async (value: any) => {
     const res = await mockApi(value);
     dispatch({type: 'INCREMENT', incrementValue: res});
   };
 
-  const {favoriteFruit, count, screenName, message} = state;
+  const {favoriteFruit, count, screenName, message}: any = state;
   return (
     <>
       <div>
@@ -50,7 +50,7 @@ const App = ({reducer, initialState}) => {
       <TextBox
         type="text"
         value={screenName}
-        onChange={e => {
+        onChange={(e: any) => {
           dispatch({
             type: 'ENTER_SCREEN_NAME',
             screenName: e.target.value,
@@ -65,7 +65,7 @@ const App = ({reducer, initialState}) => {
       <TextBox
         type="password"
         value={message}
-        onChange={e => {
+        onChange={(e: any) => {
           dispatch({
             type: 'ENTER_MESSAGE',
             message: e.target.value,

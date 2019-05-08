@@ -1,3 +1,17 @@
 {
-  "extends": "numb"
+  "extends": "numb",
+  "parser": "@typescript-eslint/parser",
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".json",
+          ".ts",
+          ".tsx"
+        ]
+      }
+    }
+  }
 }
