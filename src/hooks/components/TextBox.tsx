@@ -7,7 +7,7 @@ const TextBox = ({
   placeHolder,
   maxLength,
   className,
-}) => (
+}: any) => (
   <input
     type={type}
     value={value}

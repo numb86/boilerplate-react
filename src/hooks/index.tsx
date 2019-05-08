@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import App from './components/App';
 
-const reducer = (state, action) => {
+const reducer = (state: any, action: any) => {
   const actionValues = Object.values(action);
   actionValues.forEach(v => {
     if (v instanceof Promise)

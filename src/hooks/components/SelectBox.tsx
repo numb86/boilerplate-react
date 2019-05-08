@@ -6,7 +6,7 @@ const SelectBox = ({
   onChange,
   initialMessage = '',
   className,
-}) => (
+}: any) => (
   <select
     value={selectedItem || initialMessage}
     onChange={onChange}
@@ -18,7 +18,7 @@ const SelectBox = ({
       </option>
     )}
     {list &&
-      list.map(item => (
+      list.map((item: any) => (
         <option key={item} value={item}>
           {item}
         </option>
