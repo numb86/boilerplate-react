@@ -12,7 +12,7 @@
   },
   "scripts": {
     "start": "yarn && NODE_ENV=development webpack-dev-server --mode=development",
-    "build": "yarn && NODE_ENV=production webpack --mode=production",
+    "build": "yarn && yarn type-check && NODE_ENV=production webpack --mode=production",
     "type-check": "yarn tsc",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src/",
     "lint:fix": "eslint --ext .js,.jsx,.ts,.tsx --fix src/",
