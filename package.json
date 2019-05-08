@@ -13,6 +13,7 @@
   "scripts": {
     "start": "yarn && NODE_ENV=development webpack-dev-server --mode=development",
     "build": "yarn && NODE_ENV=production webpack --mode=production",
+    "type-check": "yarn tsc",
     "lint": "eslint src/",
     "lint:fix": "eslint --fix src/",
     "test": "jest"
