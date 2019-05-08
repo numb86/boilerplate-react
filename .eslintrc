@@ -1,3 +1,4 @@
 {
-  "extends": "numb"
+  "extends": "numb",
+  "parser": "@typescript-eslint/parser"
 }
