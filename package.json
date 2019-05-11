@@ -31,7 +31,7 @@
     "@types/react": "^16.8.17",
     "@types/react-dom": "^16.8.4",
     "@types/react-router-dom": "^4.3.3",
-    "@typescript-eslint/parser": "^1.7.0",
+    "@typescript-eslint/parser": "^1.8.0",
     "babel-jest": "^24.7.1",
     "babel-loader": "^8.0.5",
     "babel-plugin-react-remove-properties": "^0.3.0",
