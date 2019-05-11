@@ -36,7 +36,7 @@
     "babel-loader": "^8.0.5",
     "babel-plugin-react-remove-properties": "^0.3.0",
     "babel-preset-power-assert": "^3.0.0",
-    "clean-webpack-plugin": "^2.0.0",
+    "clean-webpack-plugin": "^2.0.2",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.11.2",
     "eslint": "^5.16.0",
