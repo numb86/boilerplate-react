@@ -21,16 +21,23 @@
   "jest": {
     "setupFilesAfterEnv": [
       "<rootDir>/test.config.js"
-    ]
+    ],
+    "transform": {
+      "^.+\\.js$": "babel-jest",
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    }
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.3.3",
+    "@types/enzyme": "^3.9.2",
+    "@types/jest": "^24.0.13",
     "@types/react": "^16.8.17",
     "@types/react-dom": "^16.8.4",
     "@types/react-router-dom": "^4.3.3",
+    "@typescript-eslint/eslint-plugin": "^1.9.0",
     "@typescript-eslint/parser": "^1.9.0",
     "babel-jest": "^24.7.1",
     "babel-loader": "^8.0.6",
@@ -47,6 +54,7 @@
     "power-assert": "^1.6.1",
     "react-test-renderer": "^16.8.6",
     "terser-webpack-plugin": "^1.2.2",
+    "ts-jest": "^24.0.2",
     "typescript": "^3.4.5",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",
