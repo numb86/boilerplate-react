@@ -1,9 +1,8 @@
 import React from 'react';
 import {shallow, ShallowWrapper} from 'enzyme';
+import assert from 'assert';
 
 import Home from '../Home';
-
-const assert = require('assert');
 
 describe('Home', () => {
   it('テキストは Home', () => {
