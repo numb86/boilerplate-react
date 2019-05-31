@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require('path');
 const LicenseInfoWebpackPlugin = require('license-info-webpack-plugin').default;
 const TerserPlugin = require('terser-webpack-plugin');
@@ -26,6 +27,7 @@ module.exports = (env, argv) => {
       template: './routing/index.html',
       chunks: ['vendors', 'routing'],
     }),
+    new webpack.EnvironmentPlugin(['NODE_ENV']),
   ];
 
   const splitChunks = {
