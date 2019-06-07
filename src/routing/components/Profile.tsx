@@ -1,4 +1,4 @@
 import React from 'react';
 
-const Profile = () => <>Profile</>;
+const Profile: () => React.ReactElement = () => <>Profile</>;
 export default Profile;

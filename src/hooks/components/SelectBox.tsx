@@ -1,12 +1,20 @@
 import React from 'react';
 
-const SelectBox = ({
+interface Props {
+  list: string[];
+  selectedItem: string;
+  onChange: (arg: React.FormEvent<HTMLSelectElement>) => any;
+  initialMessage?: string;
+  className?: string;
+}
+
+const SelectBox: React.FC<Props> = ({
   list,
   selectedItem,
   onChange,
   initialMessage = '',
   className,
-}: any) => (
+}) => (
   <select
     value={selectedItem || initialMessage}
     onChange={onChange}
@@ -18,11 +26,13 @@ const SelectBox = ({
       </option>
     )}
     {list &&
-      list.map((item: any) => (
-        <option key={item} value={item}>
-          {item}
-        </option>
-      ))}
+      list.map(
+        (item: string): React.ReactElement => (
+          <option key={item} value={item}>
+            {item}
+          </option>
+        )
+      )}
   </select>
 );
 export default SelectBox;
