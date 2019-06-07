@@ -1,6 +1,7 @@
 import React from 'react';
 
-const TextBox = ({
+// TODO: 完全に無意味なコンポーネントなので、あとで削除する
+const TextBox: (arg: any) => React.ReactElement = ({
   type,
   value,
   onChange,

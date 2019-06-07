@@ -6,7 +6,7 @@ import Home from './Home';
 import Memo from './Memo';
 import Profile from './Profile';
 
-const App = () => (
+const App: () => React.ReactElement = () => (
   <BrowserRouter>
     <>
       <Header />

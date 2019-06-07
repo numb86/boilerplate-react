@@ -8,13 +8,15 @@ const links = [
   {path: '/routing/profile', text: 'Profile'},
 ];
 
-const Header = () => (
+const Header: () => React.ReactElement = () => (
   <>
-    {links.map(link => (
-      <div key={link.path}>
-        <Link to={link.path}>{link.text}</Link>
-      </div>
-    ))}
+    {links.map(
+      (link): React.ReactElement => (
+        <div key={link.path}>
+          <Link to={link.path}>{link.text}</Link>
+        </div>
+      )
+    )}
     <hr />
   </>
 );

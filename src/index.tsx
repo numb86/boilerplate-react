@@ -11,13 +11,13 @@ const z = {
 };
 console.log(z);
 
-const asyncFunc = async () => {
+const asyncFunc = async (): Promise<void> => {
   const res = await fetch('http://localhost:8080');
   console.log(res.status);
 };
 
 asyncFunc();
 
-const App = () => <>Hello React!</>;
+const App: () => React.ReactElement = () => <>Hello React!</>;
 
 ReactDOM.render(<App />, document.querySelector('#app'));

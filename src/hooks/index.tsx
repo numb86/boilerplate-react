@@ -3,12 +3,14 @@ import ReactDOM from 'react-dom';
 
 import App from './components/App';
 
-const reducer = (state: any, action: any) => {
+const reducer = (state: any, action: any): {} => {
   const actionValues = Object.values(action);
-  actionValues.forEach(v => {
-    if (v instanceof Promise)
-      throw new Error('Action does not allow Promise Object.');
-  });
+  actionValues.forEach(
+    (v): void => {
+      if (v instanceof Promise)
+        throw new Error('Action does not allow Promise Object.');
+    }
+  );
 
   const {type, favoriteFruit, incrementValue, screenName, message} = action;
   switch (type) {

@@ -3,7 +3,12 @@ import React, {useReducer} from 'react';
 import SelectBox from './SelectBox';
 import TextBox from './TextBox';
 
-const mockApi = (value: any) => Promise.resolve(value);
+interface Fruit {
+  id: number;
+  label: string;
+}
+
+const mockApi = (value: number): Promise<number> => Promise.resolve(value);
 
 const fruitList = [
   {id: 1, label: 'Banana'},
@@ -11,13 +16,15 @@ const fruitList = [
   {id: 3, label: 'Orange'},
 ];
 
-const App = ({reducer, initialState}: any) => {
+const App = ({reducer, initialState}: any): React.ReactElement => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const onSelectFruit = (e: any) => {
-    const seletedFruit = fruitList.filter(f => f.label === e.target.value)[0];
+  const onSelectFruit = (e: React.FormEvent<HTMLSelectElement>): void => {
+    const seletedFruit = fruitList.filter(
+      (f: Fruit): boolean => f.label === e.currentTarget.value
+    )[0];
     dispatch({type: 'UPDATE_FAVORITE_FRUIT', favoriteFruit: seletedFruit});
   };
-  const increment = async (value: any) => {
+  const increment = async (value: number): Promise<void> => {
     const res = await mockApi(value);
     dispatch({type: 'INCREMENT', incrementValue: res});
   };
@@ -34,12 +41,12 @@ const App = ({reducer, initialState}: any) => {
         {favoriteFruit && `I like ${favoriteFruit.label}.`}
       </div>
 
-      <button type="button" onClick={() => increment(1)}>
+      <button type="button" onClick={(): Promise<void> => increment(1)}>
         +1
       </button>
 
       <SelectBox
-        list={fruitList.map(f => f.label)}
+        list={fruitList.map((f: Fruit): string => f.label)}
         selectedItem={favoriteFruit ? favoriteFruit.label : null}
         onChange={onSelectFruit}
         initialMessage="select favorite fruit"
@@ -50,10 +57,10 @@ const App = ({reducer, initialState}: any) => {
       <TextBox
         type="text"
         value={screenName}
-        onChange={(e: any) => {
+        onChange={(e: React.FormEvent<HTMLInputElement>): void => {
           dispatch({
             type: 'ENTER_SCREEN_NAME',
-            screenName: e.target.value,
+            screenName: e.currentTarget.value,
           });
         }}
         placeHolder="Enter your name"
@@ -65,10 +72,10 @@ const App = ({reducer, initialState}: any) => {
       <TextBox
         type="password"
         value={message}
-        onChange={(e: any) => {
+        onChange={(e: React.FormEvent<HTMLInputElement>): void => {
           dispatch({
             type: 'ENTER_MESSAGE',
-            message: e.target.value,
+            message: e.currentTarget.value,
           });
         }}
         placeHolder="Enter message"

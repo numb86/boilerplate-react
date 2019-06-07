@@ -4,8 +4,8 @@ import assert from 'assert';
 
 import Home from '../Home';
 
-describe('Home', () => {
-  it('テキストは Home', () => {
+describe('Home', (): void => {
+  it('テキストは Home', (): void => {
     const wrapper: ShallowWrapper = shallow(<Home />).find(
       '[data-test="text"]'
     );

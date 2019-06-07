@@ -38,7 +38,7 @@
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.13.2",
     "eslint": "^5.16.0",
-    "eslint-config-numb": "^5.1.0",
+    "eslint-config-numb": "^6.0.0",
     "html-webpack-plugin": "^3.2.0",
     "jest": "^24.7.1",
     "license-info-webpack-plugin": "^2.0.0",
@@ -58,5 +58,8 @@
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.0",
     "whatwg-fetch": "^3.0.0"
+  },
+  "resolutions": {
+    "@types/react": "^16.8.19"
   }
 }
