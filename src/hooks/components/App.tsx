@@ -1,7 +1,6 @@
 import React, {useReducer} from 'react';
 
 import SelectBox from './SelectBox';
-import TextBox from './TextBox';
 
 interface Fruit {
   id: number;
@@ -54,7 +53,7 @@ const App = ({reducer, initialState}: any): React.ReactElement => {
 
       <br />
 
-      <TextBox
+      <input
         type="text"
         value={screenName}
         onChange={(e: React.FormEvent<HTMLInputElement>): void => {
@@ -63,13 +62,13 @@ const App = ({reducer, initialState}: any): React.ReactElement => {
             screenName: e.currentTarget.value,
           });
         }}
-        placeHolder="Enter your name"
-        maxLength="5"
+        placeholder="Enter your name"
+        maxLength={5}
       />
 
       <br />
 
-      <TextBox
+      <input
         type="password"
         value={message}
         onChange={(e: React.FormEvent<HTMLInputElement>): void => {
@@ -78,7 +77,7 @@ const App = ({reducer, initialState}: any): React.ReactElement => {
             message: e.currentTarget.value,
           });
         }}
-        placeHolder="Enter message"
+        placeholder="Enter message"
       />
     </>
   );
