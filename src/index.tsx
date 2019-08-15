@@ -2,6 +2,8 @@ import 'whatwg-fetch';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+declare const module: any;
+
 // IE11動作確認のためのコード
 const x = {a: 1, b: 2};
 const y = {a: 2, c: 3};
@@ -21,3 +23,7 @@ asyncFunc();
 const App: () => React.ReactElement = () => <>Hello React!</>;
 
 ReactDOM.render(<App />, document.querySelector('#app'));
+
+if (module.hot) {
+  module.hot.accept();
+}

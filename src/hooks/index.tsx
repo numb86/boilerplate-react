@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 
 import App from './components/App';
 
+declare const module: any;
+
 const reducer = (state: any, action: any): {} => {
   const actionValues = Object.values(action);
   actionValues.forEach(
@@ -50,3 +52,7 @@ ReactDOM.render(
   <App reducer={reducer} initialState={initialState} />,
   document.querySelector('#app')
 );
+
+if (module.hot) {
+  module.hot.accept();
+}

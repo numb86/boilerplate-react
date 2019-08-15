@@ -92,6 +92,7 @@ module.exports = (env, argv) => {
       contentBase: path.resolve(__dirname, OUTPUT_DIR_NAME),
       host: '0.0.0.0',
       disableHostCheck: true,
+      hot: true,
       historyApiFallback: {
         rewrites: [
           {from: /^\/hooks/, to: '/hooks/index.html'},
