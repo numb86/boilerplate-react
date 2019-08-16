@@ -23,7 +23,3 @@ asyncFunc();
 const App: () => React.ReactElement = () => <>Hello React!</>;
 
 ReactDOM.render(<App />, document.querySelector('#app'));
-
-if (module.hot) {
-  module.hot.accept();
-}

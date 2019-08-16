@@ -1,4 +1,5 @@
 import React, {useReducer} from 'react';
+import {hot} from 'react-hot-loader/root';
 
 import SelectBox from './SelectBox';
 
@@ -82,4 +83,4 @@ const App = ({reducer, initialState}: any): React.ReactElement => {
     </>
   );
 };
-export default App;
+export default hot(App);

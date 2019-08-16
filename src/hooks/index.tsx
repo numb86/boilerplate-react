@@ -52,7 +52,3 @@ ReactDOM.render(
   <App reducer={reducer} initialState={initialState} />,
   document.querySelector('#app')
 );
-
-if (module.hot) {
-  module.hot.accept();
-}

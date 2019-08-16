@@ -1,5 +1,6 @@
 import React from 'react';
 import {BrowserRouter, Route} from 'react-router-dom';
+import {hot} from 'react-hot-loader/root';
 
 import Header from './Header';
 import Home from './Home';
@@ -16,4 +17,4 @@ const App: () => React.ReactElement = () => (
     </>
   </BrowserRouter>
 );
-export default App;
+export default hot(App);
