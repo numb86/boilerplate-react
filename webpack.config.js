@@ -85,6 +85,9 @@ module.exports = (env, argv) => {
     },
     resolve: {
       extensions: ['.ts', '.tsx', '.js', '.jsx'],
+      alias: {
+        'react-dom': '@hot-loader/react-dom',
+      },
     },
     plugins,
     optimization,
