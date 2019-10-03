@@ -60,5 +60,8 @@
     "react-hot-loader": "^4.12.14",
     "react-router-dom": "^5.0.1",
     "whatwg-fetch": "^3.0.0"
+  },
+  "resolutions": {
+    "set-value": "2.0.1"
   }
 }
