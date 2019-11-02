@@ -100,7 +100,7 @@ module.exports = (env, argv) => {
         rewrites: [
           {from: /^\/hooks/, to: '/hooks/index.html'},
           {from: /^\/routing/, to: '/routing/index.html'},
-          {from: /^\//, to: 'index.html'},
+          {from: /^\//, to: '/index.html'},
         ],
       },
     },
