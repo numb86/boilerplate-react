@@ -1,13 +1,16 @@
 import React from 'react';
-import {Route} from 'react-router-dom';
+import {useRouteMatch} from 'react-router-dom';
 
-const Memo: () => React.ReactElement = () => (
-  <>
-    Memo
-    <Route
-      path="/routing/memo/hoge"
-      render={(): React.ReactElement => <div>Hoge</div>}
-    />
-  </>
-);
+const Memo: () => React.ReactElement = () => {
+  const match = useRouteMatch({
+    path: '/routing/memo/hoge',
+  });
+
+  return (
+    <>
+      Memo
+      {match && <div>Hoge</div>}
+    </>
+  );
+};
 export default Memo;

@@ -11,9 +11,15 @@ const App: () => React.ReactElement = () => (
   <BrowserRouter>
     <>
       <Header />
-      <Route exact path="/routing" component={Home} />
-      <Route path="/routing/memo" component={Memo} />
-      <Route path="/routing/profile" component={Profile} />
+      <Route exact path="/routing">
+        <Home />
+      </Route>
+      <Route path="/routing/memo">
+        <Memo />
+      </Route>
+      <Route path="/routing/profile">
+        <Profile />
+      </Route>
     </>
   </BrowserRouter>
 );
