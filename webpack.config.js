@@ -3,7 +3,7 @@ const path = require('path');
 const LicenseInfoWebpackPlugin = require('license-info-webpack-plugin').default;
 const TerserPlugin = require('terser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
 const SOURCE_DIR_NAME = 'src';
 const OUTPUT_DIR_NAME = 'public';
